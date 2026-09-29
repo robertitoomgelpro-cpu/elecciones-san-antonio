@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elecciones Municipales - San Antonio de Chaclla</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef2f5;
+    color:#20252b;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg,#0b2239,#164e78,#2878a8);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+}
+
+header h1{
+    font-size:clamp(28px,5vw,46px);
+    margin-bottom:8px;
+}
+
+header p{
+    font-size:17px;
+    opacity:.92;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    background:#091b2d;
+    box-shadow:0 3px 12px rgba(0,0,0,.25);
+}
+
+nav button{
+    background:none;
+    border:none;
+    color:white;
+    padding:15px 20px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+nav button:hover{
+    background:#2878a8;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:35px auto;
+}
+
+.page{
+    animation:entrada .5s ease;
+}
+
+@keyframes entrada{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero{
+    background:white;
+    padding:45px 30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+.hero h2{
+    color:#164e78;
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    color:#164e78;
+    margin:35px 0 20px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:24px;
+}
+
+.card{
+    background:white;
+    border-radius:17px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.09);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+}
+
+.photo{
+    width:100%;
+    height:280px;
+    background:#dce5eb;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#52616d;
+    padding:15px;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card h3{
+    color:#164e78;
+    font-size:20px;
+    margin-bottom:6px;
+}
+
+.party{
+    color:#666;
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+.tag{
+    display:inline-block;
+    background:#e6f1f8;
+    color:#164e78;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:13px;
+    margin:3px;
+}
+
+.btn{
+    display:inline-block;
+    border:none;
+    background:#176b9e;
+    color:white;
+    padding:11px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+    margin-top:12px;
+}
+
+.btn:hover{
+    background:#0d4568;
+    transform:scale(1.03);
+}
+
+.info-box{
+    background:white;
+    padding:27px;
+    border-radius:16px;
+    margin-bottom:24px;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.info-box h3{
+    color:#164e78;
+    margin-bottom:14px;
+    font-size:23px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:15px;
+}
+
+.data{
+    background:#f0f4f7;
+    padding:15px;
+    border-radius:9px;
+}
+
+.data strong{
+    display:block;
+    color:#174b70;
+}
+
+.list{
+    padding-left:24px;
+}
+
+.list li{
+    margin-bottom:9px;
+}
+
+.proposal{
+    border-left:5px solid #2878a8;
+    background:#f5f9fb;
+    padding:15px;
+    margin:12px 0;
+    border-radius:0 9px 9px 0;
+}
+
+.good{
+    border-left:6px solid #238636;
+}
+
+.good h3{
+    color:#238636;
+}
+
+.bad{
+    border-left:6px solid #d29922;
+}
+
+.bad h3{
+    color:#9a6a00;
+}
+
+.ugly{
+    border-left:6px solid #c62828;
+}
+
+.ugly h3{
+    color:#c62828;
+}
+
+.notice{
+    background:#fff8dc;
+    border-left:5px solid #d9a400;
+    padding:18px;
+    border-radius:8px;
+    margin:20px 0;
+}
+
+.back{
+    margin-bottom:20px;
+}
+
+.source{
+    word-break:break-word;
+}
+
+.source a{
+    color:#176b9e;
+}
+
+footer{
+    background:#091b2d;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:50px;
+}
+
+footer a{
+    color:#7fc8f5;
+}
+
+.profile-photo{
+    max-width:360px;
+    height:420px;
+    margin:0 auto 20px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.profile-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+@media(max-width:600px){
+
+    nav button{
+        padding:11px 9px;
+        font-size:13px;
+    }
+
+    .container{
+        width:94%;
+        margin:22px auto;
+    }
+
+    .hero{
+        padding:30px 20px;
+    }
+
+    .hero h2{
+        font-size:26px;
+    }
+
+    .photo{
+        height:300px;
+    }
+
+    .profile-photo{
+        height:390px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>Elecciones Municipales</h1>
+
+    <p>
+        San Antonio de Chaclla — Información de candidatos y propuestas
+    </p>
+
+</header>
+
+
+<nav>
+
+    <button onclick="ir('inicio')">
+        Inicio
+    </button>
+
+    <button onclick="ir('candidatos')">
+        Candidatos
+    </button>
+
+    <button onclick="ir('propuestas')">
+        Propuestas
+    </button>
+
+    <button onclick="ir('distrito')">
+        San Antonio
+    </button>
+
+    <button onclick="ir('fuentes')">
+        Fuentes
+    </button>
+
+</nav>
+
+
+<main class="container" id="app"></main>
+
+
+<footer>
+
+    <p>
+        <strong>
+            Elecciones Municipales de San Antonio de Chaclla
+        </strong>
+    </p>
+
+    <p>
+        Proyecto educativo
+    </p>
+
+    <p>
+        Información basada principalmente en documentos del
+        Jurado Nacional de Elecciones.
+    </p>
+
+    <p>
+        <a
+        href="https://votoinformado.jne.gob.pe/"
+        target="_blank">
+            Voto Informado - JNE
+        </a>
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   CANDIDATOS
+===================================================== */
+
+const candidatos = [
+
+/* -----------------------------------------------------
+   CANDIDATO 1
+----------------------------------------------------- */
+
+{
+    id:1,
+
+    nombre:"Jhosiel Miqueaz Chen Gutierrez",
+
+    partido:"Renovación Popular",
+
+    cargo:"Alcalde Distrital",
+
+    sexo:"Hombre",
+
+    nacimiento:"16/11/1994",
+
+    edad:"31 años",
+
+    lugar:"Áncash, Yungay, Yungay — Perú",
+
+    foto:
+    "https://stovotoinformadodev.blob.core.windows.net/contenedor-1/76738267.jpg",
+
+    educacion:[
+
+        "Primaria concluida.",
+
+        "Secundaria concluida.",
+
+        "Ingeniería Civil — Universidad Peruana Unión.",
+
+        "Bachiller en Ingeniería Civil — Universidad Peruana Unión.",
+
+        "Maestría en Gestión Pública — Universidad César Vallejo.",
+
+        "Doctorado en Ingeniería Civil — Universidad Nacional Federico Villarreal, registrado como no egresado."
+
+    ],
+
+    experiencia:[
+
+        "Gerente de Desarrollo Urbano — Municipalidad Distrital de San Antonio (2023–2026).",
+
+        "Asistente Administrativo — Municipalidad Distrital de Santa Eulalia (2021).",
+
+        "Ingeniero de Obras — Universidad Peruana Unión (2018–2020)."
+
+    ],
+
+    trayectoria:[
+
+        "No se incorporó información adicional de trayectoria partidaria en los datos utilizados para esta página."
+
+    ],
+
+    propuestas:[
+
+        "Desarrollo social y atención de las necesidades de la población.",
+
+        "Desarrollo económico del distrito.",
+
+        "Ordenamiento territorial y desarrollo urbano.",
+
+        "Medidas relacionadas con el medio ambiente y gestión del territorio.",
+
+        "Fortalecimiento de la gestión institucional municipal.",
+
+        "Propuestas relacionadas con las dimensiones social, económica, territorial, ambiental e institucional."
+
+    ],
+
+    bueno:[
+
+        "Registra formación universitaria en Ingeniería Civil.",
+
+        "Cuenta con estudios de Maestría en Gestión Pública.",
+
+        "Tiene experiencia laboral registrada dentro de la Municipalidad Distrital de San Antonio.",
+
+        "Su experiencia incluye funciones relacionadas con desarrollo urbano e ingeniería de obras.",
+
+        "Su plan aborda diferentes dimensiones de la gestión municipal."
+
+    ],
+
+    malo:[
+
+        "El doctorado en Ingeniería Civil figura como no egresado en la información declarada.",
+
+        "Algunas propuestas están formuladas de manera general y requieren revisar las metas específicas del plan."
+
+    ],
+
+    feo:[
+
+        "Para conocer la viabilidad de sus proyectos es necesario revisar presupuesto, cronograma y responsables.",
+
+        "Una parte importante de su experiencia municipal registrada corresponde al área de desarrollo urbano."
+    ]
+},
+
+
+/* -----------------------------------------------------
+   CANDIDATO 2
+----------------------------------------------------- */
+
+{
+    id:2,
+
+    nombre:"Jenny Munive Molina",
+
+    partido:"Fuerza Popular",
+
+    cargo:"Alcalde Distrital",
+
+    sexo:"Mujer",
+
+    nacimiento:"04/02/1977",
+
+    edad:"49 años",
+
+    lugar:"Lima, Lima, Lurigancho — Perú",
+
+    foto:
+    "https://stovotoinformadodev.blob.core.windows.net/contenedor-1/10606412.jpg",
+
+    educacion:[
+
+        "Primaria concluida.",
+
+        "Secundaria concluida.",
+
+        "Técnico en Contabilidad — IST Cimas.",
+
+        "Licenciada en Administración — Universidad Peruana de las Américas.",
+
+        "Maestría en Gestión Pública y Auditoría — Universidad Católica de Trujillo."
+
+    ],
+
+    experiencia:[
+
+        "Tesorera — Municipalidad de Ricardo Palma (2025–2026).",
+
+        "Especialista — Saludpol, Ministerio del Interior (2026).",
+
+        "Analista — Saludpol, Ministerio del Interior (2024).",
+
+        "Especialista — Municipalidad de San Juan de Miraflores (2021–2022).",
+
+        "Apoyo Administrativo — Gobierno Regional de Lima (2019–2020)."
+
+    ],
+
+    trayectoria:[
+
+        "Regidora Distrital — Alianza Para el Progreso (2015–2018).",
+
+        "Renunció a Alianza Para el Progreso en 2024.",
+
+        "Renunció al Movimiento Regional Unidad Cívica Lima en 2021."
+
+    ],
+
+    propuestas:[
+
+        "Ordenamiento y planificación territorial.",
+
+        "Mejoramiento y ampliación de servicios de saneamiento.",
+
+        "Acciones relacionadas con electrificación.",
+
+        "Manejo y disposición de residuos sólidos.",
+
+        "Fortalecimiento de los servicios de salud.",
+
+        "Seguridad ciudadana.",
+
+        "Modernización y mejora de la administración municipal.",
+
+        "Medidas relacionadas con infraestructura y servicios públicos."
+
+    ],
+
+    bueno:[
+
+        "Cuenta con formación técnica en Contabilidad.",
+
+        "Cuenta con formación universitaria en Administración.",
+
+        "Registra estudios de maestría relacionados con Gestión Pública y Auditoría.",
+
+        "Tiene experiencia registrada en tesorería y administración pública.",
+
+        "Cuenta con experiencia previa como regidora distrital."
+
+    ],
+
+    malo:[
+
+        "Registra cambios de organización política durante su trayectoria declarada.",
+
+        "Algunas propuestas requieren revisar sus metas e indicadores para conocer cómo se plantea ejecutarlas."
+
+    ],
+
+    feo:[
+
+        "Los proyectos de saneamiento, electrificación y residuos requieren revisar presupuesto, competencias municipales y cronogramas.",
+
+        "La experiencia registrada incluye distintos cargos y entidades, por lo que es importante revisar las funciones específicas desempeñadas."
+    ]
+},
+
+
+/* -----------------------------------------------------
+   CANDIDATO 3
+----------------------------------------------------- */
+
+{
+    id:3,
+
+    nombre:"Juan Daniel Talaverano Pariona",
+
+    partido:"Partido Democrático Somos Perú",
+
+    cargo:"Alcalde Distrital",
+
+    sexo:"Hombre",
+
+    nacimiento:"07/05/1980",
+
+    edad:"46 años",
+
+    lugar:"Lima, Lima, San Martín de Porres — Perú",
+
+    foto:
+    "https://stovotoinformadodev.blob.core.windows.net/contenedor-1/40781973.jpg",
+
+    educacion:[
+
+        "Primaria concluida.",
+
+        "Secundaria concluida.",
+
+        "Contabilidad — Universidad Nacional del Callao.",
+
+        "Bachiller en Contabilidad — 2009."
+
+    ],
+
+    experiencia:[
+
+        "Gerente General — Misky Motors E.I.R.L. (2022–2026)."
+
+    ],
+
+    trayectoria:[
+
+        "Renunció al Movimiento Regional Unidad Cívica Lima en 2021.",
+
+        "Renunció a Renovación Popular en 2024."
+
+    ],
+
+    propuestas:[
+
+        "Desarrollo económico local.",
+
+        "Desarrollo social.",
+
+        "Desarrollo cultural.",
+
+        "Fortalecimiento institucional.",
+
+        "Proyectos de saneamiento.",
+
+        "Seguridad ciudadana.",
+
+        "Limpieza pública.",
+
+        "Infraestructura.",
+
+        "Acciones de desarrollo social."
+
+    ],
+
+    bueno:[
+
+        "Cuenta con formación universitaria en Contabilidad.",
+
+        "Registra experiencia como gerente general en una empresa.",
+
+        "Su plan aborda dimensiones económicas, sociales, culturales e institucionales.",
+
+        "Incluye propuestas relacionadas con servicios públicos e infraestructura."
+
+    ],
+
+    malo:[
+
+        "No registra estudios de posgrado en la información proporcionada.",
+
+        "Registra renuncias a organizaciones políticas durante su trayectoria declarada."
+
+    ],
+
+    feo:[
+
+        "La experiencia laboral registrada se concentra principalmente en el sector privado.",
+
+        "Los proyectos de saneamiento e infraestructura requieren revisar presupuesto, cronograma y mecanismos de ejecución."
+    ]
+},
+
+
+/* -----------------------------------------------------
+   CANDIDATO 4
+----------------------------------------------------- */
+
+{
+    id:4,
+
+    nombre:"Mariano Roman Rojas Huarcaya",
+
+    partido:"Acción Popular",
+
+    cargo:"Alcalde Distrital",
+
+    sexo:"Hombre",
+
+    nacimiento:"17/01/1976",
+
+    edad:"50 años",
+
+    lugar:"Lima, Lima, Ate — Perú",
+
+    foto:
+    "https://stovotoinformadodev.blob.core.windows.net/contenedor-1/40017814.jpg",
+
+    educacion:[
+
+        "Primaria concluida.",
+
+        "Secundaria concluida.",
+
+        "No registra estudios técnicos en la información proporcionada.",
+
+        "No registra estudios universitarios en la información proporcionada.",
+
+        "No registra estudios de posgrado."
+
+    ],
+
+    experiencia:[
+
+        "Trabajador independiente — Chofer (2016–2026)."
+
+    ],
+
+    trayectoria:[
+
+        "No se incorporó información adicional de trayectoria partidaria en los datos utilizados para esta página."
+
+    ],
+
+    propuestas:[
+
+        "Desarrollo social.",
+
+        "Seguridad ciudadana.",
+
+        "Desarrollo económico.",
+
+        "Infraestructura.",
+
+        "Ordenamiento territorial.",
+
+        "Protección del medio ambiente.",
+
+        "Gestión de riesgos.",
+
+        "Modernización municipal.",
+
+        "Transparencia municipal."
+
+    ],
+
+    bueno:[
+
+        "Su plan de gobierno aborda diferentes áreas de la administración municipal.",
+
+        "Incluye temas relacionados con seguridad, infraestructura, ambiente y gestión de riesgos.",
+
+        "Registra experiencia laboral durante varios años como trabajador independiente."
+
+    ],
+
+    malo:[
+
+        "La información declarada no registra estudios técnicos, universitarios ni de posgrado.",
+
+        "La experiencia laboral registrada corresponde al trabajo independiente como chofer."
+
+    ],
+
+    feo:[
+
+        "Por la información educativa disponible, resulta importante revisar directamente el plan para conocer cómo se plantea la ejecución técnica de los proyectos.",
+
+        "Las propuestas requieren analizar presupuesto, cronograma y responsables para conocer cómo se implementarían."
+    ]
+},
+
+
+/* -----------------------------------------------------
+   CANDIDATO 5
+----------------------------------------------------- */
+
+{
+    id:5,
+
+    nombre:"Lalo Pedro Manzano Gomez",
+
+    partido:"Partido del Buen Gobierno",
+
+    cargo:"Alcalde Distrital",
+
+    sexo:"Hombre",
+
+    nacimiento:"29/09/1972",
+
+    edad:"54 años",
+
+    lugar:"Lima, Lima, San Juan de Lurigancho — Perú",
+
+    foto:
+    "https://stovotoinformadodev.blob.core.windows.net/contenedor-1/10105233.jpg",
+
+    educacion:[
+
+        "Primaria concluida.",
+
+        "Secundaria concluida.",
+
+        "Suboficial PNP — Escuela de Suboficiales PNP.",
+
+        "Formación en Escuela Técnico Superior de la Policía Nacional del Perú.",
+
+        "Abogado — Universidad de San Martín de Porres.",
+
+        "Bachiller en Derecho — Universidad de San Martín de Porres."
+
+    ],
+
+    experiencia:[
+
+        "Dirección de Economía y Finanzas PNP — Policía Nacional del Perú (1991–2013)."
+
+    ],
+
+    trayectoria:[
+
+        "Renunció al Partido Demócrata Unido Perú en 2024.",
+
+        "Renunció a Podemos Perú en 2022."
+
+    ],
+
+    propuestas:[
+
+        "Seguridad ciudadana.",
+
+        "Salud.",
+
+        "Educación.",
+
+        "Agricultura y ganadería.",
+
+        "Turismo.",
+
+        "Servicios básicos.",
+
+        "Infraestructura.",
+
+        "Gestión municipal.",
+
+        "Desarrollo económico."
+
+    ],
+
+    bueno:[
+
+        "Cuenta con formación universitaria en Derecho.",
+
+        "Registra formación policial.",
+
+        "Tiene experiencia laboral registrada en la Policía Nacional del Perú.",
+
+        "Su plan incluye seguridad, servicios básicos, infraestructura y desarrollo económico."
+
+    ],
+
+    malo:[
+
+        "Registra renuncias a organizaciones políticas durante su trayectoria declarada.",
+
+        "Su experiencia laboral registrada corresponde principalmente al ámbito policial."
+
+    ],
+
+    feo:[
+
+        "Las propuestas de seguridad, infraestructura y servicios básicos requieren revisar recursos, responsables y cronogramas.",
+
+        "Algunas propuestas requieren coordinación con otras entidades del Estado además de la municipalidad."
+    ]
+}
+
+];
+
+
+/* =====================================================
+   NAVEGACIÓN
+===================================================== */
+
+function ir(pagina){
+
+    window.location.href =
+        window.location.pathname +
+        "?pagina=" +
+        pagina;
+
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+function inicio(){
+
+return `
+
+<div class="page">
+
+<section class="hero">
+
+    <h2>
+        Elecciones Municipales de San Antonio de Chaclla
+    </h2>
+
+    <p>
+        Página informativa sobre los candidatos a la
+        Municipalidad Distrital de San Antonio, sus propuestas,
+        trayectoria y datos declarados.
+    </p>
+
+    <button
+        class="btn"
+        onclick="ir('candidatos')">
+
+        👥 Ver candidatos
+
+    </button>
+
+</section>
+
+
+<div class="info-box">
+
+    <h3>
+        🗳️ ¿De qué trata esta página?
+    </h3>
+
+    <p>
+        Este proyecto escolar reúne información electoral para
+        conocer a los candidatos que participan en las elecciones
+        municipales de San Antonio y revisar sus propuestas.
+    </p>
+
+</div>
+
+
+<div class="info-box">
+
+    <h3>
+        🔎 ¿Qué puedes encontrar?
+    </h3>
+
+    <div class="info-grid">
+
+        <div class="data">
+            <strong>👥 Candidatos</strong>
+            Información de los cinco candidatos.
+        </div>
+
+        <div class="data">
+            <strong>📋 Propuestas</strong>
+            Principales temas planteados en sus planes.
+        </div>
+
+        <div class="data">
+            <strong>🟢 Lo bueno</strong>
+            Aspectos favorables identificados en la información.
+        </div>
+
+        <div class="data">
+            <strong>🟡 Lo malo</strong>
+            Aspectos que requieren atención o revisión.
+        </div>
+
+        <div class="data">
+            <strong>🔴 Lo feo</strong>
+            Puntos que conviene analizar con mayor cuidado.
+        </div>
+
+        <div class="data">
+            <strong>📚 Fuentes</strong>
+            Enlaces oficiales del JNE.
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="notice">
+
+    <strong>Importante:</strong>
+
+    “Lo bueno, lo malo y lo feo” es una forma de organizar
+    información documentada. No constituye una recomendación
+    de voto ni establece quién es mejor o peor.
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   CANDIDATOS
+===================================================== */
+
+function candidatosPagina(){
+
+return `
+
+<div class="page">
+
+<section class="hero">
+
+    <h2>
+        👥 Candidatos
+    </h2>
+
+    <p>
+        Conoce a los cinco candidatos considerados en este proyecto.
+        Haz clic en cada uno para consultar su información.
+    </p>
+
+</section>
+
+
+<div class="cards">
+
+${candidatos.map(c => `
+
+<div class="card">
+
+    <div class="photo">
+
+        <img
+            src="${c.foto}"
+            alt="Fotografía de ${c.nombre}"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='Fotografía no disponible';"
+        >
+
+    </div>
+
+
+    <div class="card-content">
+
+        <h3>
+            ${c.nombre}
+        </h3>
+
+        <p class="party">
+            ${c.partido}
+        </p>
+
+        <span class="tag">
+            ${c.cargo}
+        </span>
+
+        <br>
+
+        <button
+            class="btn"
+            onclick="ir('candidato${c.id}')">
+
+            Ver información
+
+        </button>
+
+    </div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   PÁGINA INDIVIDUAL
+===================================================== */
+
+function candidatoPagina(c){
+
+return `
+
+<div class="page">
+
+
+<div class="back">
+
+    <button
+        class="btn"
+        onclick="ir('candidatos')">
+
+        ← Volver a candidatos
+
+    </button>
+
+</div>
+
+
+<section class="hero">
+
+    <div class="profile-photo">
+
+        <img
+            src="${c.foto}"
+            alt="Fotografía de ${c.nombre}"
+        >
+
+    </div>
+
+
+    <h2>
+        ${c.nombre}
+    </h2>
+
+    <p>
+        <strong>
+            ${c.partido}
+        </strong>
+    </p>
+
+    <p>
+        ${c.cargo}
+    </p>
+
+</section>
+
+
+<!-- INFORMACIÓN GENERAL -->
+
+<div class="info-box">
+
+    <h3>
+        👤 Información general
+    </h3>
+
+    <div class="info-grid">
+
+        <div class="data">
+            <strong>Nombre</strong>
+            ${c.nombre}
+        </div>
+
+        <div class="data">
+            <strong>Organización política</strong>
+            ${c.partido}
+        </div>
+
+        <div class="data">
+            <strong>Sexo</strong>
+            ${c.sexo}
+        </div>
+
+        <div class="data">
+            <strong>Fecha de nacimiento</strong>
+            ${c.nacimiento}
+        </div>
+
+        <div class="data">
+            <strong>Edad</strong>
+            ${c.edad}
+        </div>
+
+        <div class="data">
+            <strong>Lugar de nacimiento</strong>
+            ${c.lugar}
+        </div>
+
+        <div class="data">
+            <strong>Cargo</strong>
+            ${c.cargo}
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- EDUCACIÓN -->
+
+<div class="info-box">
+
+    <h3>
+        🎓 Educación
+    </h3>
+
+    <ul class="list">
+
+        ${c.educacion.map(x => `
+            <li>${x}</li>
+        `).join("")}
+
+    </ul>
+
+</div>
+
+
+<!-- EXPERIENCIA -->
+
+<div class="info-box">
+
+    <h3>
+        💼 Experiencia laboral
+    </h3>
+
+    <ul class="list">
+
+        ${c.experiencia.map(x => `
+            <li>${x}</li>
+        `).join("")}
+
+    </ul>
+
+</div>
+
+
+<!-- TRAYECTORIA -->
+
+<div class="info-box">
+
+    <h3>
+        🏛️ Trayectoria política declarada
+    </h3>
+
+    <ul class="list">
+
+        ${c.trayectoria.map(x => `
+            <li>${x}</li>
+        `).join("")}
+
+    </ul>
+
+</div>
+
+
+<!-- PROPUESTAS -->
+
+<div class="info-box">
+
+    <h3>
+        📋 Propuestas
+    </h3>
+
+    <p>
+        Principales temas identificados en el plan de gobierno
+        correspondiente.
+    </p>
+
+
+    ${c.propuestas.map((x,i) => `
+
+        <div class="proposal">
+
+            <strong>
+                Propuesta ${i+1}
+            </strong>
+
+            <p>
+                ${x}
+            </p>
+
+        </div>
+
+    `).join("")}
+
+</div>
+
+
+<!-- LO BUENO -->
+
+<div class="info-box good">
+
+    <h3>
+        🟢 Lo bueno
+    </h3>
+
+    <p>
+        Aspectos favorables que pueden identificarse a partir
+        de la información declarada.
+    </p>
+
+    <ul class="list">
+
+        ${c.bueno.map(x => `
+            <li>${x}</li>
+        `).join("")}
+
+    </ul>
+
+</div>
+
+
+<!-- LO MALO -->
+
+<div class="info-box bad">
+
+    <h3>
+        🟡 Lo malo
+    </h3>
+
+    <p>
+        Aspectos que pueden generar preguntas o que conviene
+        revisar con mayor detalle.
+    </p>
+
+    <ul class="list">
+
+        ${c.malo.map(x => `
+            <li>${x}</li>
+        `).join("")}
+
+    </ul>
+
+</div>
+
+
+<!-- LO FEO -->
+
+<div class="info-box ugly">
+
+    <h3>
+        🔴 Lo feo
+    </h3>
+
+    <p>
+        Puntos que merecen especial atención al revisar
+        la información disponible.
+    </p>
+
+    <ul class="list">
+
+        ${c.feo.map(x => `
+            <li>${x}</li>
+        `).join("")}
+
+    </ul>
+
+</div>
+
+
+<div class="notice">
+
+    <strong>
+        Nota:
+    </strong>
+
+    Esta sección organiza aspectos documentados para facilitar
+    la revisión de la información. No representa una calificación
+    ni una recomendación de voto.
+
+</div>
+
+
+<!-- FUENTE -->
+
+<div class="info-box">
+
+    <h3>
+        📚 Fuente oficial
+    </h3>
+
+    <p class="source">
+
+        La información electoral debe contrastarse con
+        Voto Informado y la Plataforma Electoral del
+        Jurado Nacional de Elecciones.
+
+    </p>
+
+
+    <a
+        href="https://votoinformado.jne.gob.pe/"
+        target="_blank"
+        class="btn">
+
+        Abrir Voto Informado JNE
+
+    </a>
+
+</div>
+
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   PÁGINA DE PROPUESTAS
+===================================================== */
+
+function propuestasPagina(){
+
+return `
+
+<div class="page">
+
+<section class="hero">
+
+    <h2>
+        📋 Propuestas de los candidatos
+    </h2>
+
+    <p>
+        Revisa los principales temas planteados por cada
+        organización política.
+    </p>
+
+</section>
+
+
+<div class="cards">
+
+${candidatos.map(c => `
+
+<div class="card">
+
+    <div class="photo">
+
+        <img
+            src="${c.foto}"
+            alt="${c.nombre}"
+        >
+
+    </div>
+
+
+    <div class="card-content">
+
+        <h3>
+            ${c.nombre}
+        </h3>
+
+        <p class="party">
+            ${c.partido}
+        </p>
+
+
+        ${c.propuestas.slice(0,5).map(p => `
+
+            <div class="proposal">
+                ${p}
+            </div>
+
+        `).join("")}
+
+
+        <button
+            class="btn"
+            onclick="ir('candidato${c.id}')">
+
+            Ver propuestas completas
+
+        </button>
+
+    </div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   SAN ANTONIO
+===================================================== */
+
+function distritoPagina(){
+
+return `
+
+<div class="page">
+
+<section class="hero">
+
+    <h2>
+        🏘️ San Antonio de Chaclla
+    </h2>
+
+    <p>
+        Contexto general del distrito para comprender
+        los temas presentes en las propuestas.
+    </p>
+
+</section>
+
+
+<div class="info-box">
+
+    <h3>
+        📍 Ubicación
+    </h3>
+
+    <p>
+        San Antonio es un distrito ubicado en la provincia
+        de Huarochirí, departamento de Lima.
+    </p>
+
+</div>
+
+
+<div class="info-box">
+
+    <h3>
+        🏛️ Municipalidad Distrital
+    </h3>
+
+    <p>
+        La municipalidad distrital tiene competencias y
+        responsabilidades relacionadas con los servicios
+        públicos locales, desarrollo urbano, infraestructura,
+        ambiente, seguridad ciudadana y administración municipal,
+        de acuerdo con la legislación peruana.
+    </p>
+
+</div>
+
+
+<div class="info-box">
+
+    <h3>
+        🔎 Temas que aparecen en los planes
+    </h3>
+
+
+    <div class="info-grid">
+
+        <div class="data">
+            <strong>🚨 Seguridad</strong>
+            Seguridad ciudadana y prevención.
+        </div>
+
+        <div class="data">
+            <strong>🏗️ Infraestructura</strong>
+            Obras y mejoramiento de servicios.
+        </div>
+
+        <div class="data">
+            <strong>💧 Servicios básicos</strong>
+            Saneamiento, agua, electrificación y limpieza.
+        </div>
+
+        <div class="data">
+            <strong>💰 Economía</strong>
+            Desarrollo económico y actividades productivas.
+        </div>
+
+        <div class="data">
+            <strong>🌱 Ambiente</strong>
+            Residuos y protección ambiental.
+        </div>
+
+        <div class="data">
+            <strong>🏛️ Gestión</strong>
+            Modernización, transparencia y administración.
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   FUENTES
+===================================================== */
+
+function fuentesPagina(){
+
+return `
+
+<div class="page">
+
+<section class="hero">
+
+    <h2>
+        📚 Fuentes oficiales
+    </h2>
+
+    <p>
+        Consulta la información electoral directamente
+        en las plataformas del Jurado Nacional de Elecciones.
+    </p>
+
+</section>
+
+
+<div class="info-box">
+
+    <h3>
+        🗳️ Voto Informado - JNE
+    </h3>
+
+    <p>
+        Plataforma oficial donde se puede consultar información
+        electoral, hojas de vida y planes de gobierno.
+    </p>
+
+    <a
+        href="https://votoinformado.jne.gob.pe/"
+        target="_blank"
+        class="btn">
+
+        Abrir Voto Informado
+
+    </a>
+
+</div>
+
+
+<div class="info-box">
+
+    <h3>
+        📊 Plataforma Electoral
+    </h3>
+
+    <p>
+        Plataforma oficial del Jurado Nacional de Elecciones
+        para consultar información electoral.
+    </p>
+
+    <a
+        href="https://plataformaelectoral.jne.gob.pe/"
+        target="_blank"
+        class="btn">
+
+        Abrir Plataforma Electoral
+
+    </a>
+
+</div>
+
+
+<div class="info-box">
+
+    <h3>
+        📄 Planes de gobierno utilizados
+    </h3>
+
+    <ul class="list">
+
+        <li>
+            Jhosiel Miqueaz Chen Gutierrez —
+            Renovación Popular
+        </li>
+
+        <li>
+            Jenny Munive Molina —
+            Fuerza Popular
+        </li>
+
+        <li>
+            Juan Daniel Talaverano Pariona —
+            Partido Democrático Somos Perú
+        </li>
+
+        <li>
+            Mariano Roman Rojas Huarcaya —
+            Acción Popular
+        </li>
+
+        <li>
+            Lalo Pedro Manzano Gomez —
+            Partido del Buen Gobierno
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="notice">
+
+    <strong>
+        Importante:
+    </strong>
+
+    La información puede actualizarse en las plataformas
+    oficiales del JNE. Para una consulta electoral, se debe
+    utilizar la información oficial más reciente.
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   CARGAR LA PÁGINA
+===================================================== */
+
+function cargar(){
+
+    const parametros =
+        new URLSearchParams(window.location.search);
+
+    const pagina =
+        parametros.get("pagina") || "inicio";
+
+    const app =
+        document.getElementById("app");
+
+
+    if(pagina === "inicio"){
+
+        app.innerHTML =
+            inicio();
+
+    }
+
+    else if(pagina === "candidatos"){
+
+        app.innerHTML =
+            candidatosPagina();
+
+    }
+
+    else if(pagina === "propuestas"){
+
+        app.innerHTML =
+            propuestasPagina();
+
+    }
+
+    else if(pagina === "distrito"){
+
+        app.innerHTML =
+            distritoPagina();
+
+    }
+
+    else if(pagina === "fuentes"){
+
+        app.innerHTML =
+            fuentesPagina();
+
+    }
+
+    else if(pagina.startsWith("candidato")){
+
+        const numero =
+            parseInt(
+                pagina.replace("candidato","")
+            );
+
+        const candidato =
+            candidatos.find(
+                c => c.id === numero
+            );
+
+        if(candidato){
+
+            app.innerHTML =
+                candidatoPagina(candidato);
+
+        }
+
+        else{
+
+            app.innerHTML =
+                inicio();
+
+        }
+
+    }
+
+    else{
+
+        app.innerHTML =
+            inicio();
+
+    }
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+cargar();
+
+</script>
+
+</body>
+</html>
